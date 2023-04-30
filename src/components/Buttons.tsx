@@ -17,7 +17,12 @@ const ButtonStyled = styled.button`
     background: none;
     outline: none;
     border: none;
-  `}
+  `};
+  @media (max-width: 576px) {
+    ${(props: IButtonProps) => props.media && css`
+      display: none;
+    `}
+  }
 `
 
 interface IButtonProps {
@@ -29,7 +34,8 @@ interface IButtonProps {
     width?: string,
     margin?: string,
     transparent?: string,
-    onClick?: (e: any) => void
+    onClick?: (e: any) => void,
+    media?: string,
 }
 
 function Buttons(props: IButtonProps) {

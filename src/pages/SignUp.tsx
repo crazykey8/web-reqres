@@ -13,7 +13,7 @@ const SignUpStyled = styled.div`
 function SignUp() {
 
     return (
-        <Layout padding={'259px 0 0 0'} maxWidth={'500px'}>
+        <Layout media={'true'} padding={'259px 0 0 0'} maxWidth={'500px'}>
             <SignUpStyled>
                 <Header2 margin={'0 0 16px 0'}>
                     Регистрация

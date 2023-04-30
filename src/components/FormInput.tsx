@@ -9,7 +9,7 @@ const FormInputStyled = styled.div`
 
   input {
     margin-top: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     width: 100%;
     padding: 16px;
     font-weight: 400;
@@ -25,7 +25,7 @@ const FormInputStyled = styled.div`
   button {
     position: absolute;
     right: 10px;
-    bottom: 15px;
+    bottom: 10px;
   }
 `
 
@@ -69,7 +69,7 @@ function FormInput(props: IFormInputProps) {
                 }
             </div>
             {validate &&
-                <Text small color={'var(--color-red)'}>
+                <Text custom={'true'} fontSize={'10px'} lineHeight={'12px'} small color={'var(--color-red)'}>
                     Ошибка
                 </Text>
             }

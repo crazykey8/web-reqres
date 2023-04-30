@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 const TextsStyled = styled.p`
   margin: ${(props: ITextsProps) => props.margin || '0'};
@@ -8,6 +8,11 @@ const TextsStyled = styled.p`
   font-size: ${(props: ITextsProps) => props.small ? '14px' : '16px'};
   line-height: ${(props: ITextsProps) => props.small ? '16px' : '136.19%'};
   color: ${(props: ITextsProps) => props.color || 'var(--color-black)'};
+
+  ${(props: ITextsProps) => props.custom && css`
+    font-size: ${(props: ITextsProps) => props.fontSize || '16px'};
+    line-height: ${(props: ITextsProps) => props.lineHeight || '136.19%'};
+  `}
 `
 
 interface ITextsProps {
@@ -15,6 +20,9 @@ interface ITextsProps {
     small?: boolean,
     margin?: string,
     color?: string,
+    custom?: string,
+    fontSize?: string,
+    lineHeight?: string
 }
 
 function Text(props: ITextsProps) {
