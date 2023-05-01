@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import SignUp from "./pages/SignUp";
 import ClientPage from "./pages/ClientPage";
 import {clientLoader} from "./response/clientResponse";
+import {pageLoader} from "./response/pageResponse";
 
 const GlobalStyled = createGlobalStyle`
   *,
@@ -82,12 +83,18 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <><GlobalStyled/>{localStorage.getItem('token') === null ? <Navigate to={'/register'}/> :
-            <HomePage/>}</>,
+            <Navigate to={'/page/1'}/>}</>,
     },
     {
-        path: "register",
+        path: "/register",
         element: <><GlobalStyled/>{localStorage.getItem('token') !== null ? <Navigate to={'/'}/> :
             <SignUp/>}</>,
+    },
+    {
+        path: "/page/:id",
+        element: <><GlobalStyled/>{localStorage.getItem('token') === null ? <Navigate to={'/register'}/> :
+            <HomePage/>}</>,
+        loader: pageLoader
     },
     {
         path: 'user/:id',

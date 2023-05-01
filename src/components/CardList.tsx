@@ -1,25 +1,21 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Card from "./Card";
 import styled from "styled-components";
-import {useAppDispatch, useAppSelector} from "../store/store";
-import {responsePage} from "../store/slices/pageReducer";
 import {pagePeopleState} from "../interface/actionState";
+import {useLoaderData} from "react-router-dom";
 
 const CardListStyled = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  min-height: calc(100vh - 400px);
   grid-gap: 20px;
   justify-items: center;
   margin-bottom: 56px;
 `
 
 function CardList() {
-    const pages: Array<pagePeopleState> = useAppSelector(state => state.page.action)
-    const dispatch = useAppDispatch()
-
-    useEffect(() => {
-        dispatch(responsePage())
-    }, [])
+    const page: any = useLoaderData()
+    const pages: Array<pagePeopleState> = page.clients.data
 
     return (
         <CardListStyled>

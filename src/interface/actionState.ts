@@ -1,9 +1,3 @@
-export interface actionState {
-    action: any,
-    error: any,
-    status?: string,
-}
-
 export interface pagePeopleState {
     id: number,
     email: string,

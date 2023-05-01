@@ -46,7 +46,7 @@ function ClientPage() {
                                 Назад
                             </Buttons>
                             :
-                            <Buttons onClick={handleLogout} transparent={'true'}>
+                            <Buttons onClick={goBack} transparent={'true'}>
                                 <BackIcon/>
                             </Buttons>
                         }

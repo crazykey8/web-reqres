@@ -74,7 +74,7 @@ function Form() {
     }, [passwordRepeat, password])
 
     useEffect(() => {
-        if (name.length && email.length && password.length && (password === passwordRepeat)) setFormValid(true)
+        if ((name.length >= 5) && email.length && password.length && (password === passwordRepeat)) setFormValid(true)
     }, [name.length, email.length, password.length, passwordRepeat.length])
 
     return (

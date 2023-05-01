@@ -1,5 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {actionState} from "../../interface/actionState";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
 
 export const responseRegister = createAsyncThunk(
     'signUp/responseRegister',
@@ -30,7 +29,14 @@ export const responseRegister = createAsyncThunk(
     }
 )
 
-const initialState: actionState = {
+export interface signUpState {
+    action: any,
+    error: any,
+    status?: string,
+}
+
+
+const initialState: signUpState = {
     action: '',
     error: null
 }
