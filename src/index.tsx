@@ -8,6 +8,8 @@ import RobotoWoff2 from './fonts/Roboto.woff2'
 import RobotoWoff from './fonts/Roboto.woff'
 import HomePage from "./pages/HomePage";
 import SignUp from "./pages/SignUp";
+import ClientPage from "./pages/ClientPage";
+import {clientLoader} from "./response/clientResponse";
 
 const GlobalStyled = createGlobalStyle`
   *,
@@ -83,10 +85,16 @@ const router = createBrowserRouter([
             <HomePage/>}</>,
     },
     {
-        path: "/register",
+        path: "register",
         element: <><GlobalStyled/>{localStorage.getItem('token') !== null ? <Navigate to={'/'}/> :
             <SignUp/>}</>,
     },
+    {
+        path: 'user/:id',
+        element: <><GlobalStyled/>{localStorage.getItem('token') === null ? <Navigate to={'/register'}/> :
+            <ClientPage/>}</>,
+        loader: clientLoader
+    }
 ]);
 
 root.render(

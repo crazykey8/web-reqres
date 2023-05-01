@@ -17,7 +17,6 @@ function CardList() {
     const pages: Array<pagePeopleState> = useAppSelector(state => state.page.action)
     const dispatch = useAppDispatch()
 
-
     useEffect(() => {
         dispatch(responsePage())
     }, [])
@@ -25,7 +24,7 @@ function CardList() {
     return (
         <CardListStyled>
             {pages.map((i) =>
-                <Card key={i.id} avatar={i.avatar} firstName={i.first_name} lastName={i.last_name}/>
+                <Card key={i.id} avatar={i.avatar} firstName={i.first_name} lastName={i.last_name} id={i.id}/>
             )}
         </CardListStyled>
     );

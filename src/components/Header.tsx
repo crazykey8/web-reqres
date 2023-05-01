@@ -2,13 +2,13 @@ import React from 'react';
 import styled from "styled-components";
 
 const HeaderStyled = styled.header`
-  padding-top: 32px;
-  padding-bottom: 64px;
+  padding: ${(props: IHeaderProps) => props.padding || '0'};
   background-color: var(--color-violet);
 `
 
 interface IHeaderProps {
-    children: React.ReactNode
+    children: React.ReactNode,
+    padding?: string
 }
 
 function Header(props: IHeaderProps) {
@@ -16,7 +16,7 @@ function Header(props: IHeaderProps) {
     const {children} = props
 
     return (
-        <HeaderStyled>
+        <HeaderStyled {...props}>
             {children}
         </HeaderStyled>
     );

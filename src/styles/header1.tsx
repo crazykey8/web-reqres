@@ -11,7 +11,7 @@ const H1Styled = styled.h1`
   color: ${(props: IHeaderProps) => props.color || 'var(--color-black)'};
   max-width: ${(props: IHeaderProps) => props.maxWidth || 'auto'};
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     ${(props: IHeaderProps) => props.media && css`
       font-size: 36px;
       line-height: 42px;

@@ -4,6 +4,7 @@ import Header2 from "../styles/header2";
 import Flex from "./Flex";
 import Buttons from "./Buttons";
 import HeartEmptyIcon from "../images/HeartEmptyIcon";
+import {Link} from "react-router-dom";
 
 const CardStyled = styled.li`
   max-width: 305px;
@@ -25,28 +26,32 @@ const CardStyled = styled.li`
 interface ICardProps {
     avatar: string,
     firstName: string,
-    lastName: string
+    lastName: string,
+    id: number
 }
 
 function Card(props: ICardProps) {
     const {
         avatar,
         firstName,
-        lastName
+        lastName,
+        id
     } = props
 
     const fullName = firstName + ' ' + lastName
 
     return (
         <CardStyled>
-            <Flex align={'center'} direction={'column'}>
-                <img
-                    src={avatar}
-                    alt="avatar"/>
-                <Header2>
-                    {fullName}
-                </Header2>
-            </Flex>
+            <Link to={`/user/${id}`}>
+                <Flex align={'center'} direction={'column'}>
+                    <img
+                        src={avatar}
+                        alt="avatar"/>
+                    <Header2>
+                        {fullName}
+                    </Header2>
+                </Flex>
+            </Link>
             <Flex justify={'flex-end'}>
                 <Buttons flex={'true'} backgroundColor={'var(--color-gray-light)'} padding={'8px'}>
                     <HeartEmptyIcon/>

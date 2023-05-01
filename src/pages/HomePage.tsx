@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Header from "../components/Header";
 import {useNavigate} from "react-router-dom";
 import Buttons from "../components/Buttons";
-import BackIcon from "../images/BackIcon";
+import LogoutIcon from "../images/LogoutIcon";
 import Header1 from "../styles/header1";
 import Header2 from "../styles/header2";
 import Layout from "../components/Layout";
@@ -30,8 +30,8 @@ function HomePage() {
 
     return (
         <>
-            <Header>
-                <Layout padding={'0 20px'}>
+            <Header padding={'32px 0 64px 0'}>
+                <Layout padding={'0 15px'}>
                     <div style={{
                         textAlign: 'right'
                     }}>
@@ -42,7 +42,7 @@ function HomePage() {
                             </Buttons>
                             :
                             <Buttons onClick={handleLogout} transparent={'true'}>
-                                <BackIcon/>
+                                <LogoutIcon/>
                             </Buttons>
                         }
                     </div>
@@ -60,7 +60,7 @@ function HomePage() {
                     </div>
                 </Layout>
             </Header>
-            <Layout padding={'48px 20px 69px 20px'}>
+            <Layout padding={'48px 15px 69px 15px'}>
                 <CardList/>
                 <Buttons margin={'auto'} backgroundColor={'transparent'} padding={'9px 16px'} flex={'true'}
                          border={'1px solid var(--color-black)'}>
