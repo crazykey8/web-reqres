@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {css} from "styled-components";
-import {IHeaderProps} from "./header2";
+import {IHeaderProps} from "../interface/componentProps";
 
 const H1Styled = styled.h1`
   margin: ${(props: IHeaderProps) => props.margin || '0'};

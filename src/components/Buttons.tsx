@@ -18,6 +18,11 @@ const ButtonStyled = styled.button`
     outline: none;
     border: none;
   `};
+
+  ${(props: IButtonProps) => props.flex && css`
+    display: flex;
+    align-items: center;
+  `};
   @media (max-width: 576px) {
     ${(props: IButtonProps) => props.media && css`
       display: none;
@@ -36,6 +41,7 @@ interface IButtonProps {
     transparent?: string,
     onClick?: (e: any) => void,
     media?: string,
+    flex?: string,
 }
 
 function Buttons(props: IButtonProps) {

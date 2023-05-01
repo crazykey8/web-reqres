@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, {css} from "styled-components";
+import {IHeaderProps} from "../interface/componentProps";
 
 const H2Styled = styled.h2`
   margin: ${(props: IHeaderProps) => props.margin || '0'};
@@ -17,16 +18,6 @@ const H2Styled = styled.h2`
     `}
   }
 `
-
-export interface IHeaderProps {
-    children: React.ReactNode;
-    margin?: string,
-    color?: string
-    fontSize?: string,
-    lineHeight?: string,
-    maxWidth?: string,
-    media?: string
-}
 
 function Header2(props: IHeaderProps) {
     return (

@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {actionState} from "../../interface/actionState";
 
 export const responseRegister = createAsyncThunk(
     'signUp/responseRegister',
@@ -29,15 +30,8 @@ export const responseRegister = createAsyncThunk(
     }
 )
 
-interface signUpState {
-    id?: string,
-    token: string,
-    error: any,
-    status?: string,
-}
-
-const initialState: signUpState = {
-    token: '',
+const initialState: actionState = {
+    action: '',
     error: null
 }
 
@@ -52,7 +46,7 @@ const signUpSlice = createSlice({
         })
         fetch.addCase(responseRegister.fulfilled, (state, action) => {
             state.status = 'resolved';
-            state.token = action.payload
+            state.action = action.payload
         })
         fetch.addCase(responseRegister.rejected, (state, action) => {
             state.status = 'rejected';
