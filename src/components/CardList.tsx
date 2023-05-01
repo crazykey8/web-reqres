@@ -22,7 +22,7 @@ function CardList() {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        if (!pages) {
+        if (pages.length === 0) {
             dispatch(responsePage(numPage))
         }
     }, [])

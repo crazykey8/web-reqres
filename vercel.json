@@ -4,5 +4,19 @@
       "source": "/(.*)",
       "destination": "/"
     }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/"
+    },
+    {
+      "src": "/recruit",
+      "dest": "/"
+    },
+    {
+      "src": "/tos",
+      "dest": "/"
+    }
   ]
 }
