@@ -17,7 +17,7 @@ const CardListStyled = styled.ul`
 
 function CardList() {
     const page: any = useLoaderData()
-    const numPage = page.clients.data.page
+    const numPage = page.clients.page
     const pages: pagePeopleState[] = useAppSelector(state => state.page.filter)
     const dispatch = useAppDispatch()
 
