@@ -35,7 +35,7 @@ function Form() {
 
     function validateNameFunc(e: React.ChangeEvent<HTMLInputElement>) {
         setName(e.target.value)
-        if (name.length <= 3) {
+        if (name.trim().length <= 3) {
             setValidateName(true)
         } else {
             setValidateName(false)
@@ -54,7 +54,7 @@ function Form() {
 
     function validatePasswordFunc(e: React.ChangeEvent<HTMLInputElement>) {
         setPassword(e.target.value)
-        if (password.length <= 3) {
+        if (password.trim().length <= 3) {
             setValidatePassword(true)
         } else {
             setValidatePassword(false)
@@ -66,15 +66,11 @@ function Form() {
     }
 
     useEffect(() => {
-        if (password !== passwordRepeat) {
-            setValidatePasswordRepeat(true)
+        if ((name.length >= 3) && email.length && (password.length >= 3) && (password === passwordRepeat)) {
+            setFormValid(true)
         } else {
-            setValidatePasswordRepeat(false)
+            setFormValid(false)
         }
-    }, [passwordRepeat, password])
-
-    useEffect(() => {
-        if ((name.length >= 5) && email.length && password.length && (password === passwordRepeat)) setFormValid(true)
     }, [name.length, email.length, password.length, passwordRepeat.length])
 
     return (
