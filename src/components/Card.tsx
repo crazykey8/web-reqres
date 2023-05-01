@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import Header2 from "../styles/header2";
-import Flex from "./Flex";
-import Buttons from "./Buttons";
+import Flex from "../styles/Flex";
+import Buttons from "../styles/Buttons";
 import HeartEmptyIcon from "../images/HeartEmptyIcon";
 import {Link} from "react-router-dom";
-import {useAppDispatch} from "../store/store";
 import HeartFullIcon from "../images/HeartFullIcon";
+import {useAppDispatch} from "../store/store";
+import {likedPosts} from "../store/slices/pageReducer";
 
 const CardStyled = styled.li`
   max-width: 305px;
@@ -29,7 +30,8 @@ interface ICardProps {
     avatar: string,
     firstName: string,
     lastName: string,
-    id: number
+    id: number,
+    liked: boolean
 }
 
 function Card(props: ICardProps) {
@@ -37,13 +39,16 @@ function Card(props: ICardProps) {
         avatar,
         firstName,
         lastName,
-        id
+        id,
+        liked
     } = props
 
-    const [like, setLike] = useState(false)
+
+    const [like, setLike] = useState(liked)
     const dispatch = useAppDispatch()
 
     function handleLike() {
+        dispatch(likedPosts({id: id, like: !like}))
         setLike(!like)
     }
 

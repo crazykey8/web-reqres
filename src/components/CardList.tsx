@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Card from "./Card";
 import styled from "styled-components";
+import {useAppDispatch, useAppSelector} from "../store/store";
+import {responsePage} from "../store/slices/pageReducer";
 import {pagePeopleState} from "../interface/actionState";
 import {useLoaderData} from "react-router-dom";
 
@@ -15,12 +17,21 @@ const CardListStyled = styled.ul`
 
 function CardList() {
     const page: any = useLoaderData()
-    const pages: Array<pagePeopleState> = page.clients.data
+    const numPage = page.clients.data.page
+    const pages: pagePeopleState[] = useAppSelector(state => state.page.filter)
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        if (!pages) {
+            dispatch(responsePage(numPage))
+        }
+    }, [])
 
     return (
         <CardListStyled>
             {pages.map((i) =>
-                <Card key={i.id} avatar={i.avatar} firstName={i.first_name} lastName={i.last_name} id={i.id}/>
+                <Card liked={i.like} key={i.id} avatar={i.avatar} firstName={i.first_name} lastName={i.last_name}
+                      id={i.id}/>
             )}
         </CardListStyled>
     );

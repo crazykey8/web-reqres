@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import FormInput from "./FormInput";
-import Buttons from "./Buttons";
+import Buttons from "../styles/Buttons";
 import {useAppDispatch} from "../store/store";
 import {responseRegister} from "../store/slices/SignUpReducer";
 import {useNavigate} from "react-router-dom";

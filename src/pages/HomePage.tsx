@@ -1,17 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import Header from "../components/Header";
-import {useLoaderData, useNavigate} from "react-router-dom";
-import Buttons from "../components/Buttons";
+import {useNavigate} from "react-router-dom";
+import Buttons from "../styles/Buttons";
 import LogoutIcon from "../images/LogoutIcon";
 import Header1 from "../styles/header1";
 import Header2 from "../styles/header2";
 import Layout from "../components/Layout";
 import CardList from "../components/CardList";
-import Text from "../styles/text";
-import Flex from "../components/Flex";
+import Pagination from "../components/Pagination";
 
 function HomePage() {
-    const page: any = useLoaderData()
 
     const [matches, setMatches] = useState(window.matchMedia("(max-width: 576px)").matches)
 
@@ -63,39 +61,7 @@ function HomePage() {
             </Header>
             <Layout padding={'48px 15px 69px 15px'}>
                 <CardList/>
-                <Flex justify={'center'}>
-                    {page.clients.page === 1 ?
-                        null :
-                        <Buttons onClick={() => navigate(`/page/${page.clients.page - 1}`)} margin={'0px 10px 0'}
-                                 backgroundColor={'transparent'}
-                                 padding={'9px 16px'} flex={'true'}
-                                 border={'1px solid var(--color-black)'}>
-                            <Text color={'var(--color-black)'}>
-                                {page.clients.page - 1}
-                            </Text>
-                        </Buttons>
-                    }
-                    <Buttons onClick={() => navigate(`/pages/${page.clients.page}`)} margin={'0px 10px 0'}
-                             backgroundColor={'var(--color-gray)'}
-                             padding={'9px 16px'} flex={'true'}
-                             border={'1px solid var(--color-black)'}>
-                        <Text color={'var(--color-white)'}>
-                            {page.clients.page}
-                        </Text>
-                    </Buttons>
-                    {page.clients.page === page.clients.per_page ?
-                        null :
-                        <Buttons onClick={() => navigate(`/page/${page.clients.page + 1}`)} margin={'0px 10px 0'}
-                                 backgroundColor={'transparent'}
-                                 padding={'9px 16px'}
-                                 flex={'true'}
-                                 border={'1px solid var(--color-black)'}>
-                            <Text color={'var(--color-black)'}>
-                                {page.clients.page + 1}
-                            </Text>
-                        </Buttons>
-                    }
-                </Flex>
+                <Pagination/>
             </Layout>
         </>
     );

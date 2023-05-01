@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {useLoaderData, useNavigate} from "react-router-dom";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
-import Flex from "../components/Flex";
-import Buttons from "../components/Buttons";
+import Flex from "../styles/Flex";
+import Buttons from "../styles/Buttons";
 import LogoutIcon from "../images/LogoutIcon";
 import BackIcon from "../images/BackIcon";
 import Header1 from "../styles/header1";
@@ -17,7 +17,7 @@ function ClientPage() {
     const [matches, setMatches] = useState(window.matchMedia("(max-width: 576px)").matches)
     const navigate = useNavigate()
 
-    const fullName = data.first_name + '' + data.last_name
+    const fullName = data.first_name + ' ' + data.last_name
 
     function handleLogout() {
         localStorage.removeItem('token')

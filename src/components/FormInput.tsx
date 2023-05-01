@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from "styled-components";
 import Text from "../styles/text";
 import HideShowIcon from "../images/HideShowIcon";
-import Buttons from "./Buttons";
+import Buttons from "../styles/Buttons";
 
 const FormInputStyled = styled.div`
   margin-bottom: 16px;
