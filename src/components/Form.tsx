@@ -12,7 +12,7 @@ function Form() {
     const navigate = useNavigate()
 
     const [name, setName] = useState('')
-    const [email, setEmail] = useState('') // eve.holt@reqres.in
+    const [email, setEmail] = useState('eve.holt@reqres.in') // eve.holt@reqres.in
     const [password, setPassword] = useState('') // any password
     const [passwordRepeat, setPasswordRepeat] = useState('')
 
@@ -91,7 +91,7 @@ function Form() {
         <form>
             <FormInput name={'Имя'} type={'text'} placeholder={'Имя'} value={name} validator={validateNameFunc}
                        validate={validateName}/>
-            <FormInput name={'Электронная почта'} type={'email'} placeholder={'example@mail.ru'} value={email}
+            <FormInput name={'Электронная почта (eve.holt@reqres.in - работает только эта!)'} type={'email'} placeholder={'example@mail.ru'} value={email}
                        validate={validateEmail} validator={validateEmailFunc}/>
             <FormInput name={'Пароль'} type={'password'} value={password} hideShow validate={validatePassword}
                        validator={validatePasswordFunc}/>
